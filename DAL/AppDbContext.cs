@@ -12,5 +12,15 @@ namespace Testgithub2.DAL
          public DbSet<Employee> Employees { get; set; }
         public DbSet<Profession> Professions { get; set;}
 
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>().Property(c => c.Name).IsRequired();
+            base.OnModelCreating(modelBuilder);
+        }
+
+
+
     }
+ 
 }
